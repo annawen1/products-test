@@ -28,17 +28,16 @@ jobs:
       contents: write
     timeout-minutes: 60
     env:
-      GH_TOKEN: ${{ secrets.MERGE_ACTION }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           fetch-depth: '0'
-          token: ${{ secrets.GH_TOKEN_LERNA }} # https://github.com/lerna/lerna/issues/1957
 
       # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
       - run: |
-          git config --global user.email ${{ secrets.CARBON_BOT_EMAIL }}
-          git config --global user.name ${{ secrets.CARBON_BOT_NAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.NAME }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -78,7 +77,7 @@ jobs:
 
       - name: Set NPM token
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.CARBON_BOT_NPM_TOKEN }}" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
 
       # Set the PUBLISH environment variable to be used later in the Lerna publish command.
       # Lerna has dry run on by default, need to pass in '--yes' flag before it will go ahead and publish.
