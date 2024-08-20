@@ -66,7 +66,7 @@
     "upgrade:manual": "sh ./scripts/monorepo-npm-upgrade.sh"
   },
   "devDependencies": {
-    "@anna-test/stylelint-config-ibm-products": "^0.0.45",
+    "@anna-test/stylelint-config-ibm-products": "*",
     "@babel/core": "^7.23.9",
     "@babel/eslint-parser": "^7.23.9",
     "@babel/preset-react": "^7.17.12",
