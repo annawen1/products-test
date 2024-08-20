@@ -1,7 +1,7 @@
 {
   "name": "@anna-test/ibm-products-styles",
   "description": "Carbon for IBM Products styles",
-  "version": "2.43.0",
+  "version": "2.44.0-rc.0",
   "license": "Apache-2.0",
   "installConfig": {
     "hoistingLimits": "none"
@@ -47,7 +47,7 @@
     "upgrade-dependencies": "npm-check-updates -u --dep dev,peer,prod --color --reject '/(carbon|^react$|^react-dom$|^chalk$|^namor)/'"
   },
   "devDependencies": {
-    "@anna-test/jest-config-ibm-cloud-cognitive": "^1.6.0",
+    "@anna-test/jest-config-ibm-cloud-cognitive": "^1.7.0-rc.0",
     "chalk": "^4.1.2",
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",

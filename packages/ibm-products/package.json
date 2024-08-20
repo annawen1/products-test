@@ -1,7 +1,7 @@
 {
   "name": "@anna-test/ibm-products",
   "description": "Carbon for IBM Products",
-  "version": "2.47.0",
+  "version": "2.48.0-rc.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -56,8 +56,8 @@
     "upgrade-dependencies": "npm-check-updates -u --dep dev,peer,prod --color --reject '/(carbon|^react$|^react-dom$|^chalk$|^namor)/'"
   },
   "devDependencies": {
-    "@anna-test/babel-preset-ibm-cloud-cognitive": "^0.14.40",
-    "@anna-test/jest-config-ibm-cloud-cognitive": "^1.6.0",
+    "@anna-test/babel-preset-ibm-cloud-cognitive": "^0.15.0-rc.0",
+    "@anna-test/jest-config-ibm-cloud-cognitive": "^1.7.0-rc.0",
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.23.9",
     "@babel/plugin-proposal-class-properties": "^7.17.12",
@@ -94,7 +94,7 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
-    "@anna-test/ibm-products-styles": "^2.43.0",
+    "@anna-test/ibm-products-styles": "^2.44.0-rc.0",
     "@babel/runtime": "^7.23.9",
     "@carbon/feature-flags": "^0.20.0",
     "@carbon/telemetry": "^0.1.0",
