@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0-rc.0](https://github.com/annawen1/products-test/compare/@anna-test/babel-preset-ibm-cloud-cognitive@0.15.0-rc.0...@anna-test/babel-preset-ibm-cloud-cognitive@0.16.0-rc.0) (2024-08-20)
+
+**Note:** Version bump only for package @anna-test/babel-preset-ibm-cloud-cognitive
+
+
+
+
+
 # 0.15.0-rc.0 (2024-08-20)
 
 **Note:** Version bump only for package @anna-test/babel-preset-ibm-cloud-cognitive

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.49.0-rc.0](https://github.com/annawen1/products-test/compare/@anna-test/ibm-products@2.48.0-rc.0...@anna-test/ibm-products@2.49.0-rc.0) (2024-08-20)
+
+**Note:** Version bump only for package @anna-test/ibm-products
+
+
+
+
+
 # 2.48.0-rc.0 (2024-08-20)
 
 **Note:** Version bump only for package @anna-test/ibm-products
