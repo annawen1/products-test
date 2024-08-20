@@ -277,7 +277,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@anna-test/stylelint-config-ibm-products@npm:*, @anna-test/stylelint-config-ibm-products@workspace:config/stylelint-config-ibm-products":
+"@anna-test/stylelint-config-ibm-products@link: ./config/stylelint-config-ibm-products::locator=ibm-products%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@anna-test/stylelint-config-ibm-products@link: ./config/stylelint-config-ibm-products::locator=ibm-products%40workspace%3A."
+  languageName: node
+  linkType: soft
+
+"@anna-test/stylelint-config-ibm-products@workspace:config/stylelint-config-ibm-products":
   version: 0.0.0-use.local
   resolution: "@anna-test/stylelint-config-ibm-products@workspace:config/stylelint-config-ibm-products"
   dependencies:
@@ -13856,7 +13862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ibm-products@workspace:."
   dependencies:
-    "@anna-test/stylelint-config-ibm-products": "npm:*"
+    "@anna-test/stylelint-config-ibm-products": "link: ./config/stylelint-config-ibm-products"
     "@babel/core": "npm:^7.23.9"
     "@babel/eslint-parser": "npm:^7.23.9"
     "@babel/preset-react": "npm:^7.17.12"
