@@ -24,6 +24,11 @@ jobs:
       - name: print out name
         run: |
           echo "${{ github.ref_name }}"
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const regex = new RegExp('!v[0-9]+.[0-9]+.[0-9]+-*');
+            console.log(regex.test(${{ github.ref_name }}));
       # - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       #   with:
       #     fetch-depth: '0'
