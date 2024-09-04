@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "${{ github.ref_name }}"
       - name: Check release type
-        if: contains(github.event.ref_name, '-rc.')
+        if: contains(github.ref_name, '-rc.')
         run: echo "PRE_RELEASE=true" >> $GITHUB_ENV
       - name: Run Next tag
         if: ${{ env.PRE_RELEASE }} == true
