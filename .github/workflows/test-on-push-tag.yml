@@ -24,7 +24,7 @@ jobs:
         if: contains(github.event.ref_name, '-rc.')
         run: echo "PRE_RELEASE=true" >> $GITHUB_ENV
       - name: Run Next tag
-        if: ${{ env.PUBLISH }} == true
+        if: ${{ env.PRE_RELEASE }} == true
         run: echo "hello "
       # - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       #   with:
