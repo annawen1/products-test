@@ -24,9 +24,12 @@ jobs:
       - name: Check release type
         if: contains(github.ref_name, '-rc.')
         run: echo "PRE_RELEASE=true" >> $GITHUB_ENV
-      - name: Run Next tag
+      - name: Check if rc
+        if: ${{ env.PRE_RELEASE }}
+        run: echo "this is an rc"
+      - name: Check if full release
         if: ${{ !env.PRE_RELEASE }}
-        run: echo "hello"
+        run: echo "full release"
       # - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       #   with:
       #     fetch-depth: '0'
