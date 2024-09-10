@@ -30,6 +30,9 @@ jobs:
       - name: Check if full release
         if: ${{ !env.PRE_RELEASE }}
         run: echo "full release"
+      - name: Get version of web components from package.json
+        run: |
+          echo "PACKAGE_VERSION=$(cat packages/ibm-products/package.json | jq -r '.version')" >> GITHUB_ENV
       # - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       #   with:
       #     fetch-depth: '0'
