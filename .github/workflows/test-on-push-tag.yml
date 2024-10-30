@@ -2,6 +2,13 @@ name: Publish Web Components CDN artifacts to Cloud Object Storage
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        # Recently published version
+        required: true
+        description: 'release tag (ie. v1.1.0-rc.0 or v1.1.0)'
+        type: string
+        default: 'v1.1.0-rc.0'
   push:
     tags:
       # Matches tags that have the shape `vX.Y.Z`. Reference:
@@ -25,7 +32,9 @@ jobs:
         run: |
           echo "${{ github.ref_name }}"
       - name: Check release type
-        if: contains(github.ref_name, '-rc.')
+        if:
+          contains(github.ref_name, '-rc.') || contains(${{
+          github.event.inputs.tag }}, '-rc.')
         run: echo "PRE_RELEASE=true" >> $GITHUB_ENV
       - name: Check if rc
         if: ${{ env.PRE_RELEASE }}
@@ -33,28 +42,28 @@ jobs:
       - name: Check if full release
         if: ${{ !env.PRE_RELEASE }}
         run: echo "full release"
-      - name: Get version of web components from package.json
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
-        with:
-          path: packages/ibm-products
-      - name: print package version
-        run: |
-          echo "PACKAGE_VERSION=${{ steps.package-version.outputs.current-version }}"
-      - name: Create file
-        run: |
-          mkdir test
-          cd test
-          echo "This is a test" > test.txt
-          cat test.txt
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks
-        env:
-          AWS_S3_BUCKET: ${{ secrets.COMMON_COS_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.COMMON_COS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.COMMON_COS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.COMMON_COS_REGION }}
-          AWS_S3_ENDPOINT: https://${{ secrets.COMMON_COS_ENDPOINT }}
-          SOURCE_DIR: 'test/'
-          DEST_DIR: 'common/carbon/test/${{steps.package-version.outputs.current-version}}'
+      # - name: Get version of web components from package.json
+      #   id: package-version
+      #   uses: martinbeentjes/npm-get-version-action@v1.3.1
+      #   with:
+      #     path: packages/ibm-products
+      # - name: print package version
+      #   run: |
+      #     echo "PACKAGE_VERSION=${{ steps.package-version.outputs.current-version }}"
+      # - name: Create file
+      #   run: |
+      #     mkdir test
+      #     cd test
+      #     echo "This is a test" > test.txt
+      #     cat test.txt
+      # - uses: jakejarvis/s3-sync-action@master
+      #   with:
+      #     args: --acl public-read --follow-symlinks
+      #   env:
+      #     AWS_S3_BUCKET: ${{ secrets.COMMON_COS_BUCKET }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.COMMON_COS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.COMMON_COS_SECRET_ACCESS_KEY }}
+      #     AWS_REGION: ${{ secrets.COMMON_COS_REGION }}
+      #     AWS_S3_ENDPOINT: https://${{ secrets.COMMON_COS_ENDPOINT }}
+      #     SOURCE_DIR: 'test/'
+      #     DEST_DIR: 'common/carbon/test/${{steps.package-version.outputs.current-version}}'
